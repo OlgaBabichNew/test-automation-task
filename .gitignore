@@ -1,0 +1,36 @@
+# --- Python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# --- Virtual environments -------------------------------------------------
+.venv/
+venv/
+env/
+
+# --- Poetry ---------------------------------------------------------------
+# poetry.lock IS committed (it guarantees reproducible installs for everyone).
+# Nothing else from Poetry needs to be in the repo.
+
+# --- Environment / secrets ------------------------------------------------
+# .env.example is committed (it's a template with no real secrets).
+# .env is NOT — it contains real credentials and local overrides.
+.env
+
+# --- Pytest / coverage ----------------------------------------------------
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Playwright -----------------------------------------------------------
+# Browser binaries are downloaded locally by `playwright install`.
+# They are large and must not be committed.
+test-results/
+playwright-report/
+
+# --- IDEs -----------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
