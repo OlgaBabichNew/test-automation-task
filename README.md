@@ -138,30 +138,31 @@ poetry run pytest tests/ui/test_login.py::TestLoginPage::test_login
 ```
 ./
 │
-├── pyproject.toml          # Poetry metadata + dependencies + pytest config
-├── poetry.lock             # Exact dependency versions (always committed)
-├── .env.example            # Documents every env variable
+├── pyproject.toml              # Poetry metadata + dependencies + pytest config
+├── poetry.lock                 # Exact dependency versions (always committed)
+├── .env.example                # Documents every env variable
 ├── .gitignore
 ├── README.md
 │
 ├── config/
 │   ├── __init__.py
-│   └── settings.py         # Typed config via pydantic-settings; reads .env
+│   └── settings.py             # Typed config via pydantic-settings; reads .env
 │
-├── pages/                  # Page Object Model
+├── pages/                      # Page Object Model
 │   ├── __init__.py
-│   ├── base_page.py        # Shared base class for all Page Objects
-│   ├── login_page.py       # Login screen (/)
-│   ├── inventory_page.py   # Product listing (/inventory.html)
-│   └── cart_page.py        # Shopping cart (/cart.html)
+│   ├── base_page.py            # Shared base class for all Page Objects
+│   ├── login_page.py           # Login screen (/)
+│   ├── inventory_page.py       # Product listing (/inventory.html)
+│   └── cart_page.py            # Shopping cart (/cart.html)
 │
 └── tests/
     ├── __init__.py
-    ├── conftest.py         # Fixtures: browser config, page objects, credentials
+    ├── conftest.py             # Fixtures: test id, browser config, page objects
     └── ui/
         ├── __init__.py
-        ├── test_login.py   # Login page test cases
-        └── test_cart.py    # Cart page test cases
+        ├── test_login.py       # Login page test cases
+        ├── test_inventory.py   # Inventory page test cases
+        └── test_cart.py        # Cart page test cases
 ```
 
 ---
