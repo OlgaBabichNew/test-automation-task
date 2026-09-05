@@ -11,8 +11,8 @@ class CartPage(BasePage):
         self.checkout_button = page.get_by_test_id("checkout")
         self.inventory_item = page.get_by_test_id("inventory-item")
 
-    def wait_for_checkout_button(self) -> None:
-        self.checkout_button.wait_for(timeout=2000)
+    def assert_checkout_button_to_be_visible(self) -> None:
+        expect(self.checkout_button).to_be_visible()
 
     def assert_cart_items_amount(self, count: int) -> None:
         expect(self.inventory_item).to_have_count(count)

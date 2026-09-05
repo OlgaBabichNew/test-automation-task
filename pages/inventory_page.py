@@ -13,8 +13,8 @@ class InventoryPage(BasePage):
         self.shopping_cart_icon = page.get_by_test_id("shopping-cart-link")
         self.shopping_cart_badge = page.get_by_test_id("shopping-cart-badge")
 
-    def wait_for_product_sort_container(self) -> None:
-        self.product_sort.wait_for(timeout=2000)
+    def assert_product_sort_container_to_be_visible(self) -> None:
+        expect(self.product_sort).to_be_visible()
 
     def add_button(self, attribute: str):
         return self.page.get_by_test_id(f"add-to-cart-{attribute}")

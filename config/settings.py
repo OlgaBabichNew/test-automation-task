@@ -1,3 +1,4 @@
+from pydantic import BaseModel, ConfigDict
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -32,16 +33,17 @@ class Credentials(BaseSettings):
 credentials = Credentials()
 
 
-class ProductItem:
-    def __init__(self, name: str, item_id: str, attribute: str, price: str):
-        self.name = name
-        self.item_id = item_id
-        self.attribute = attribute
-        self.price = price
+class ProductItem(BaseModel):
+    name: str
+    item_id: str
+    attribute: str
+    price: str
+
+    model_config = ConfigDict(frozen=True)
 
 
 product_items = {
-    "backpack": ProductItem("Sauce Labs Backpack", "item-4-title-link", "sauce-labs-backpack", "$29.99"),
-    "onesie": ProductItem("Sauce Labs Onesie", "item-2-title-link", "sauce-labs-onesie", "$7.99"),
-    "fleece_jacket": ProductItem("Sauce Labs Fleece Jacket", "item-5-title-link", "sauce-labs-fleece-jacket", "$49.99"),
+    "backpack": ProductItem(name="Sauce Labs Backpack", item_id="item-4-title-link", attribute="sauce-labs-backpack", price="$29.99"),
+    "onesie": ProductItem(name="Sauce Labs Onesie", item_id="item-2-title-link", attribute="sauce-labs-onesie", price="$7.99"),
+    "fleece_jacket": ProductItem(name="Sauce Labs Fleece Jacket", item_id="item-5-title-link", attribute="sauce-labs-fleece-jacket", price="$49.99"),
 }

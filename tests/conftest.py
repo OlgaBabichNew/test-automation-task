@@ -1,12 +1,13 @@
 import pytest
-from playwright.sync_api import Page, sync_playwright
+from playwright.sync_api import Page
 
 from config.settings import settings
 from pages.login_page import LoginPage
 
 # Configure the test-id attribute for Playwright's get_by_test_id() locator
-with sync_playwright() as p:
-    p.selectors.set_test_id_attribute(settings.test_id_attribute)
+@pytest.fixture(scope="session", autouse=True)
+def set_test_id_attribute(playwright) -> None:
+    playwright.selectors.set_test_id_attribute(settings.test_id_attribute)
 
 
 # Override pytest-playwright built-ins — picked up automatically, no explicit call needed

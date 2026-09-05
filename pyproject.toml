@@ -11,7 +11,7 @@ python = "^3.11"
 playwright = "^1.44"
 pytest-playwright = "^0.5"
 pydantic-settings = "^2.3"
-python-dotenv = "^1.0"
+pydantic = "^2.13.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2"
@@ -24,8 +24,7 @@ filterwarnings = ["error::pytest.PytestUnknownMarkWarning"]
 
 markers = [
     "smoke: fast, critical-path tests that must pass before anything else",
-    "regression: full test suite, runs on every PR / nightly",
-    "parametrize(argnames, argvalues): call a test function multiple times passing in different arguments in turn"
+    "regression: full test suite, runs on every PR / nightly"
 ]
 
 testpaths = ["tests"]
